@@ -228,7 +228,13 @@ def run_test(S, implementation, times_list, randomNumbers):
 
     # Gather the times to find each element and write them to file
     writeMode = "w" if implementation == "Linked List" else "a"
-    with open("results_problem4.txt", writeMode) as file:
+    
+    # Create output folder (if not already made)
+    if not os.path.exists(os.getcwd() + "\\output"):
+        os.makedirs(os.getcwd() + "\\output")
+
+    # Write the results to a file
+    with open(os.getcwd() + "\\output\\results_problem4.txt", writeMode) as file:
         file.write("Results for " + implementation + " based implementation\n")
         for number in randomNumbers:
             start = time.perf_counter()
