@@ -6,6 +6,7 @@
 
 import random
 import time
+import os
 
 # A class to represent a node in a doubly linked list
 class Node:
@@ -218,7 +219,7 @@ class DynamicSet_Array:
 def run_test(S, implementation, times_list, randomNumbers):
     # Read in all integers from file and add them to the given set S
     print("********** " + implementation + " **********")
-    with open("Int20k.txt", "r") as file:
+    with open(os.getcwd() + "\\resource\\Int20k.txt", "r") as file:
         for integer in file:
             value = int(integer.strip())
             S.add(value)
@@ -261,8 +262,8 @@ def main():
     print("Average time for Array: " + str(A_Average))
 
     # Producing scatter plot for report (uses a script I wrote in a different file --- plotter.py)
-    # import plotter
-    # plotter.create_scatter_plot(LL_Times, A_Times)
+    import plotter
+    plotter.create_scatter_plot(LL_Times, A_Times)
 
 # Uncomment this line to generate problem .txt file 
-# main()
+main()
